@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montez&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1ca8cb;
+  --color-secondary: #113d48;
+  --color-dark: #0d0d0c;
+  --font-inter: "Inter", sans-serif;
+  --font-montez: "Montez", cursive;
+  --font-manrope: "Manrope", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
