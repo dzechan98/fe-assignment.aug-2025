@@ -7,7 +7,6 @@ import gallery6 from "/images/gallery6.png";
 import gallery7 from "/images/gallery7.png";
 import line from "../assets/line.svg";
 import shape4 from "../assets/shape_4.svg";
-import shape5 from "../assets/shape_5.svg";
 
 export default function RecentGallery() {
   const listGalleries = [
