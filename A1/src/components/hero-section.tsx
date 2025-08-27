@@ -4,10 +4,9 @@ import arrowRightLightIcon from "../assets/arrow-right-light.svg";
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-no-repeat bg-center w-full"
+      className="relative bg-no-repeat bg-center bg-cover max-w-screen h-[800px]"
       style={{
         backgroundImage: "url('/images/background.png')",
-        height: "800px",
       }}
     >
       <div className="text-white w-full h-full flex items-center px-[300px]">
@@ -53,7 +52,6 @@ export default function HeroSection() {
           />
         </button>
       </div>
-
       <SearchForm />
     </section>
   );

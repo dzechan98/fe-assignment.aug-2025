@@ -34,17 +34,17 @@ const categories = [
 export default function TourCategories() {
   return (
     <section
-      className="relative pb-[120px] bg-no-repeat bg-center w-full"
+      className="max-w-screen overflow-hidden bg-cover relative mb-[120px] bg-no-repeat bg-center w-full"
       style={{
         backgroundImage: "url('/images/bg-overlay.png')",
         height: "800px",
       }}
     >
       <div className="mx-18 flex flex-col items-center">
-        <h3 className="mt-[175px] font-montez text-[40px] text-[#113D48]">
+        <h3 className="mt-[175px] font-montez text-[40px] text-secondary">
           Wornderful Place For You
         </h3>
-        <h2 className="font-manrope text-[48px] text-[#113D48] leading-none mb-10">
+        <h2 className="font-manrope text-[48px] text-secondary leading-none mb-10">
           Tour Categories
         </h2>
         <div className="grid grid-cols-5 gap-10 mb-[46px]">

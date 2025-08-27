@@ -6,7 +6,7 @@ import dollarIcon from "../assets/dollar.svg";
 
 export default function SearchForm() {
   return (
-    <div className="absolute z-1 left-0 w-[calc(100%-600px)] bottom-0 bg-white flex items-center gap-[52px] translate-y-1/2 rounded-2xl border-[2px] border-primary px-[34px] py-[27px] mx-[300px] h-[110px]">
+    <div className="absolute z-1 left-1/2 -translate-x-1/2 w-[calc(100%-600px)] max-w-[1320px] bottom-0 bg-white flex items-center gap-[52px] translate-y-1/2 rounded-2xl border-[2px] border-primary px-[34px] py-[27px] h-[110px]">
       <div className="relative w-[222px] px-2.5 pl-[10.5] flex items-center justify-between before:content-[''] before:absolute before:-right-[26px] before:top-1/2 before:-translate-y-1/2 before:w-[1px] before:h-full before:bg-[#E1E4E5]">
         <div className="flex items-center gap-2">
           <img src={locationPrimaryIcon} alt="Location primary" />

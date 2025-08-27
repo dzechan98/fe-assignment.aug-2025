@@ -52,7 +52,7 @@ export default function PopularDestinations() {
   return (
     <section>
       <div className="flex flex-col items-center justify-center">
-        <div className="text-[#113D48] mb-12">
+        <div className="text-secondary mb-12">
           <h3 className="text-center font-montez text-[40px]">
             Top Destination
           </h3>
