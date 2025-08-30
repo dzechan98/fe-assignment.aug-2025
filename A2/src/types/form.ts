@@ -21,7 +21,6 @@ export interface Preferences {
   notifications: boolean;
   language: string;
   theme: string;
-  interests: string[];
 }
 
 export interface FormState {
@@ -55,5 +54,4 @@ export const initialPreferences: Preferences = {
   notifications: true,
   language: "",
   theme: "",
-  interests: [],
 };

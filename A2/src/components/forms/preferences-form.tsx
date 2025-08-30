@@ -1,21 +1,4 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  preferencesSchema,
-  type PreferencesForm,
-} from "@/schemas/form-schemas";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { setPreferences, prevStep } from "@/stores/form-slice";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Form,
@@ -25,19 +8,24 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import {
+  preferencesSchema,
+  type PreferencesForm,
+} from "@/schemas/form-schemas";
+import { prevStep, setPreferences } from "@/stores/form-slice";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-const interestOptions = [
-  "Technology",
-  "Sports",
-  "Music",
-  "Travel",
-  "Food",
-  "Art",
-  "Science",
-  "Literature",
-];
 
 export function PreferencesFormComponent() {
   const dispatch = useAppDispatch();
@@ -65,14 +53,6 @@ export function PreferencesFormComponent() {
     const currentData = form.getValues();
     dispatch(setPreferences(currentData));
     dispatch(prevStep());
-  };
-
-  const handleInterestChange = (interest: string, checked: boolean) => {
-    const currentInterests = form.getValues("interests") || [];
-    const newInterests = checked
-      ? [...currentInterests, interest]
-      : currentInterests.filter((i) => i !== interest);
-    form.setValue("interests", newInterests, { shouldValidate: true });
   };
 
   return (
@@ -219,57 +199,6 @@ export function PreferencesFormComponent() {
                 )}
               />
             </div>
-
-            <FormField
-              control={form.control}
-              name="interests"
-              render={() => (
-                <FormItem>
-                  <div className="mb-4">
-                    <FormLabel className="text-base">Interests</FormLabel>
-                    <p className="text-sm text-muted-foreground">
-                      Select topics that interest you
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    {interestOptions.map((interest) => (
-                      <FormField
-                        key={interest}
-                        control={form.control}
-                        name="interests"
-                        render={({ field }) => {
-                          return (
-                            <FormItem
-                              key={interest}
-                              className="flex flex-row items-start space-x-3 space-y-0"
-                            >
-                              <FormControl>
-                                <Checkbox
-                                  className="cursor-pointer"
-                                  checked={field.value?.includes(interest)}
-                                  onCheckedChange={(checked) => {
-                                    handleInterestChange(
-                                      interest,
-                                      checked as boolean
-                                    );
-                                  }}
-                                />
-                              </FormControl>
-                              <div className="space-y-1 leading-none">
-                                <FormLabel className="text-sm font-normal">
-                                  {interest}
-                                </FormLabel>
-                              </div>
-                            </FormItem>
-                          );
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
 
             <div className="flex gap-3 pt-4">
               <Button

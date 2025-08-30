@@ -44,7 +44,6 @@ export const preferencesSchema = z.object({
   notifications: z.boolean(),
   language: z.string().min(1, "Language is required"),
   theme: z.string().min(1, "Theme is required"),
-  interests: z.array(z.string()).min(1, "Please select at least one interest"),
 });
 
 export type PersonalInfoForm = z.infer<typeof personalInfoSchema>;

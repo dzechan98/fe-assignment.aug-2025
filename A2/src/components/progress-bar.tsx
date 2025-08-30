@@ -28,15 +28,15 @@ export function ProgressBar() {
 
         {/* Active progress line */}
         <div
-          className="absolute top-4 left-8 h-px bg-primary transition-all duration-500 ease-out"
+          className="absolute top-4 left-8 h-px bg-red-500 transition-all duration-500 ease-out max-w-[calc(100%-64px)]"
           style={{
-            width: `calc(${(currentStep / (steps.length - 1)) * 100}% - 3rem)`,
+            width: `calc(${(currentStep / (steps.length - 1)) * 100}% - 2rem)`,
           }}
         />
 
         {/* Step indicators */}
         <div className="relative flex justify-between">
-          {steps.map((step, index) => {
+          {steps.map((step) => {
             const Icon = step.icon;
             const isCompleted = completedSteps.includes(step.id);
             const isCurrent = currentStep === step.id;
@@ -64,7 +64,7 @@ export function ProgressBar() {
 
                   {/* Current step indicator ring */}
                   {isCurrent && (
-                    <div className="absolute w-1 rounded-full border border-primary/30 animate-pulse" />
+                    <div className="absolute -inset-1 rounded-full border border-primary/30 animate-pulse" />
                   )}
                 </div>
 

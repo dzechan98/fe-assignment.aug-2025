@@ -81,17 +81,6 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     color: "#4B5563",
   },
-  interestsRow: {
-    marginBottom: 8,
-    fontSize: 10,
-    flexDirection: "row",
-    alignItems: "flex-start",
-  },
-  interestsList: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginLeft: 5,
-  },
   badge: {
     backgroundColor: "#DBEAFE",
     color: "#1E40AF",
@@ -224,7 +213,7 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({ formData }) => {
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Preferences & Interests</Text>
+          <Text style={styles.sectionTitle}>Preferences</Text>
 
           <View style={styles.fieldRow}>
             <Text style={styles.fieldText}>
@@ -259,23 +248,6 @@ const PDFDocument: React.FC<PDFDocumentProps> = ({ formData }) => {
               <Text style={styles.label}>Theme:</Text>{" "}
               {formatValue(preferences.theme)}
             </Text>
-          </View>
-
-          <View style={styles.interestsRow}>
-            <Text style={styles.fieldText}>
-              <Text style={styles.label}>Interests:</Text>
-            </Text>
-            <View style={styles.interestsList}>
-              {preferences?.interests && preferences?.interests.length > 0 ? (
-                preferences?.interests?.map((interest) => (
-                  <Text key={interest} style={styles.badge}>
-                    {interest}
-                  </Text>
-                ))
-              ) : (
-                <Text style={styles.fieldText}> No interests selected</Text>
-              )}
-            </View>
           </View>
         </View>
 

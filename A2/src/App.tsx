@@ -4,10 +4,9 @@ import { PreferencesForm } from "@/components/forms/preferences-form";
 import PDFPreview from "@/components/pdf-preview";
 import { ProgressBar } from "@/components/progress-bar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { resetForm } from "@/stores/form-slice";
-import { FileText, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
