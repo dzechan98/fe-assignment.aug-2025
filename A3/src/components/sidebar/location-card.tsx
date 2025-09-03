@@ -23,22 +23,18 @@ export const LocationCard = ({
           : "bg-white border-gray-200 hover:bg-gray-50 hover:border-gray-300"
       }`}
     >
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
-          <h3 className="font-semibold text-gray-900 mb-1">{location.name}</h3>
-          <div className="flex items-center mb-2">
-            <MapPin className="w-4 h-4 text-gray-500 mr-1" />
-            <span className="text-sm text-gray-600">
-              {location.description}
+      <div className="space-y-1">
+        <div className="flex items-center gap-1">
+          <MapPin className="w-4 h-4 text-gray-500" />
+          <h3 className="font-semibold text-gray-900">{location.name}</h3>
+        </div>
+        <span className="text-sm text-gray-600">{location.description}</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <StarRating rating={location.rating} />
+            <span className="ml-2 text-sm font-medium text-gray-700">
+              {location.rating}
             </span>
-          </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <StarRating rating={location.rating} />
-              <span className="ml-2 text-sm font-medium text-gray-700">
-                {location.rating}
-              </span>
-            </div>
           </div>
         </div>
       </div>

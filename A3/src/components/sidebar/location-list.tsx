@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { SearchAndFilter } from "./search-and-filter";
 import { LocationCard } from "./location-card";
 import { MapPin } from "lucide-react";
-import type { Location } from "../../types/location";
+import type { Location, SortBy } from "../../types/location";
 
 interface LocationListProps {
   locations: Location[];
@@ -10,8 +10,8 @@ interface LocationListProps {
   onLocationSelect: (location: Location) => void;
   searchTerm: string;
   onSearchChange: (searchTerm: string) => void;
-  sortBy: "name" | "rating";
-  onSortChange: (sortBy: "name" | "rating") => void;
+  sortBy: SortBy;
+  onSortChange: (sortBy: SortBy) => void;
   totalCount: number;
 }
 

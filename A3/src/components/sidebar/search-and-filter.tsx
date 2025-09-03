@@ -1,10 +1,11 @@
 import { Filter, Search } from "lucide-react";
+import type { SortBy } from "../../types/location";
 
 interface SearchAndFilterProps {
   searchTerm: string;
   onSearchChange: (searchTerm: string) => void;
-  sortBy: "name" | "rating";
-  onSortChange: (sortBy: "name" | "rating") => void;
+  sortBy: SortBy;
+  onSortChange: (sortBy: SortBy) => void;
 }
 
 export const SearchAndFilter = ({
@@ -25,7 +26,7 @@ export const SearchAndFilter = ({
           placeholder="Search by name or address..."
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+          className="bg-white outline-none w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
         />
       </div>
 
@@ -34,8 +35,8 @@ export const SearchAndFilter = ({
         <Filter className="w-4 h-4" />
         <select
           value={sortBy}
-          onChange={(e) => onSortChange(e.target.value as "name" | "rating")}
-          className="bg-white text-gray-900 rounded-lg px-3 py-1 text-sm border border-gray-300 focus:ring-2 focus:ring-blue-500"
+          onChange={(e) => onSortChange(e.target.value as SortBy)}
+          className="cursor-pointer bg-white text-gray-900 rounded-lg px-3 py-2 text-sm border border-gray-300 focus:ring-2 focus:ring-blue-500"
         >
           <option value="name">Sort by Name</option>
           <option value="rating">Sort by Rating</option>

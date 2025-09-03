@@ -6,3 +6,5 @@ export interface Location {
   description: string;
   rating: number;
 }
+
+export type SortBy = "name" | "rating";

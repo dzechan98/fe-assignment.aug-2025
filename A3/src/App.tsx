@@ -1,22 +1,9 @@
 import { useMemo, useState } from "react";
-import type { Location } from "./types/location";
-import { Sidebar } from "./components/sidebar/sidebar";
 import { MapComponent } from "./components/map/map-component";
+import { Sidebar } from "./components/sidebar/sidebar";
+import type { Location, SortBy } from "./types/location";
 import { getLocations } from "./utils/get-locations";
 import { locationUtils } from "./utils/location-utils";
-
-// import rawLocations from "/public/data/location.json";
-
-// export function getLocationss(): Location[] {
-//   return rawLocations.map((location: any) => ({
-//     id: location.id,
-//     name: location.name,
-//     lat: location.location.lat,
-//     lng: location.location.lng,
-//     rating: location.rating,
-//     description: location.description,
-//   }));
-// }
 
 function App() {
   const locations = getLocations();
@@ -24,7 +11,7 @@ function App() {
     null
   );
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState<"name" | "rating">("name");
+  const [sortBy, setSortBy] = useState<SortBy>("name");
 
   const processedLocations = useMemo(() => {
     let filtered = locationUtils.filterLocations(locations, searchTerm);
@@ -33,10 +20,6 @@ function App() {
 
   const handleLocationSelect = (location: Location) => {
     setSelectedLocation(location);
-  };
-
-  const handleShowAll = () => {
-    setSelectedLocation(null);
   };
 
   const handleClearSelection = () => {
@@ -60,7 +43,6 @@ function App() {
         locations={processedLocations}
         selectedLocation={selectedLocation}
         onLocationSelect={handleLocationSelect}
-        onShowAll={handleShowAll}
         onClearSelection={handleClearSelection}
       />
     </div>

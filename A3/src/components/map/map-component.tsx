@@ -1,16 +1,16 @@
-import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer } from "react-leaflet";
+import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../constants/map";
 import type { Location } from "../../types/location";
 import { LocationMarker } from "./location-marker";
-import { SelectedLocationInfo } from "./selected-location-info";
 import { MapController } from "./map-controller";
 import { MapControls } from "./map-controls";
+import { SelectedLocationInfo } from "./selected-location-info";
 
 interface MapComponentProps {
   locations: Location[];
   selectedLocation: Location | null;
   onLocationSelect: (location: Location) => void;
-  onShowAll: () => void;
   onClearSelection: () => void;
 }
 
@@ -18,14 +18,13 @@ export const MapComponent = ({
   locations,
   selectedLocation,
   onLocationSelect,
-  onShowAll,
   onClearSelection,
 }: MapComponentProps) => {
   return (
     <div className="flex-1 relative">
       <MapContainer
-        center={[16.0471, 108.2068]}
-        zoom={6}
+        center={DEFAULT_CENTER}
+        zoom={DEFAULT_ZOOM}
         className="w-full h-full"
         style={{ minHeight: "400px" }}
       >
@@ -33,7 +32,6 @@ export const MapComponent = ({
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
         <MapController selectedLocation={selectedLocation} />
 
         {locations.map((location) => (
@@ -45,12 +43,9 @@ export const MapComponent = ({
           />
         ))}
       </MapContainer>
-
-      <MapControls
-        onShowAll={onShowAll}
-        onClearSelection={onClearSelection}
-        hasSelection={!!selectedLocation}
-      />
+      {!!selectedLocation && (
+        <MapControls onClearSelection={onClearSelection} />
+      )}
 
       <SelectedLocationInfo location={selectedLocation} />
     </div>

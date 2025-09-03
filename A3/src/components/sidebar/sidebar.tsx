@@ -1,4 +1,4 @@
-import type { Location } from "../../types/location";
+import type { Location, SortBy } from "../../types/location";
 import { LocationList } from "./location-list";
 
 interface SidebarProps {
@@ -7,8 +7,8 @@ interface SidebarProps {
   onLocationSelect: (location: Location) => void;
   searchTerm: string;
   onSearchChange: (searchTerm: string) => void;
-  sortBy: "name" | "rating";
-  onSortChange: (sortBy: "name" | "rating") => void;
+  sortBy: SortBy;
+  onSortChange: (sortBy: SortBy) => void;
   totalCount: number;
 }
 
